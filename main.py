@@ -16,5 +16,3 @@ if __name__ == "__main__":
     x_values = [1, 2]
     for x in x_values:
         print(f"p({x}) = {p.evaluate(x)}")
-
-        
