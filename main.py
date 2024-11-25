@@ -1,7 +1,7 @@
 from test import Chine
 from Poly import Polynome
 from noeud import Noeud
-from arbre import arbre
+from arbre import Arbre
 #c = Chine()
 #c.afficher()
 
@@ -19,15 +19,17 @@ if __name__ == "__main__":
     for x in x_values:
         print(f"p({x}) = {p.evaluate(x)}")
 """
-racine = Noeud("mul")
-noeud_3 = Noeud("3")
-noeud_sin = Noeud("sin")
-noeud_x = Noeud("x")
+# Création des noeuds pour l'expression mul(3, sin(x))
+mul_node = Noeud("mul")
+trois_node = Noeud("3")
+sin_node = Noeud("sin")
+x_node = Noeud("x")
 
-noeud_sin.ajouter_enfant(noeud_x)  
-racine.ajouter_enfant(noeud_3)    
-racine.ajouter_enfant(noeud_sin) 
+# Construction de l'arbre
+sin_node.ajouter_enfant(x_node)
+mul_node.ajouter_enfant(trois_node)
+mul_node.ajouter_enfant(sin_node)
 
-arbre = arbre(racine)
-
-print(arbre.afficher())  
+# Création de l'arbre et affichage
+arbre = Arbre(mul_node)
+arbre.afficher()
